@@ -7,6 +7,23 @@
   overflow: hidden;
 }
 
+.focus-visible .card--pokeball,
+.card:hover .card--pokeball
+{
+  transform: rotate(45deg);
+}
+
+.card--pokeball {
+  position: absolute;
+  width: 4.5rem;
+  opacity: 0.1;
+  top: -.55rem;
+  right: -.55rem;
+
+  transition: all 0.3s ease;
+  transform: rotate(0deg);
+}
+
 .card--detail {
   width: 100%;
   padding: 0.5rem;

@@ -1,6 +1,8 @@
 import './styles.css'
 
 import { TPokemonType } from '../../interfaces/pokemon';
+import { ReactComponent as PokeBallLogo } from '../../assets/pokeball.svg';
+
 
 type TCard = {
   name: string
@@ -17,6 +19,7 @@ const Card = ({
 }: TCard) => {
   const paddedNumber = `${number}`.padStart(3, '0');
   return <figure className={`card card--${type}`}>
+    <PokeBallLogo className='card--pokeball' />
     <img className='card--image' src={src} alt={`${number}, ${name}`} />
     <div className='card--detail'>
       <figcaption className='card--name'>{ name }</figcaption>
