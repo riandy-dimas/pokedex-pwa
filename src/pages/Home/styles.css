@@ -9,6 +9,6 @@
 .home__content {
   padding: var(--padding-page-content);
   display: grid;
-  grid-gap: 1rem 0.75rem;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 1rem;
+  grid-template-columns: 1fr;
 }
