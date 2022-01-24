@@ -1,0 +1,11 @@
+a.clickable {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
+  border-radius: var(--radius-border);
+}
+
+a.clickable:focus {
+  outline: none;
+  box-shadow: 0 0 var(--radius-border) 0.2rem cornflowerblue;
+}
