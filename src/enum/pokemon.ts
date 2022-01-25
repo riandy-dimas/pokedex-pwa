@@ -1,3 +1,5 @@
+export const MAX_STAT = 255;
+
 export enum E_POKEMON_TYPE {
 'normal' = 1,
 'fighting' = 2,
@@ -19,4 +21,13 @@ export enum E_POKEMON_TYPE {
 'fairy' = 18,
 'unknown' = 1001,
 'shadow' = 1002,
+}
+
+export enum E_STAT_NAME {
+  'hp' = 'HP',
+  'attack' = 'Attack',
+  'defense' = 'Defense',
+  'special-attack' = 'Sp. Attack',
+  'special-defense' = 'Sp. Defense',
+  'speed' = 'Speed',
 }

@@ -1,0 +1,97 @@
+button[aria-selected='true'] {
+  font-weight: 700;
+  background-color: inherit;
+}
+
+button[aria-selected='false'] {
+  color: #333;
+}
+
+div[aria-hidden='true'] {
+  display: none;
+}
+
+.tabs__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.tabs__tab-button {
+  text-transform: capitalize;
+  background: #fff;
+  border: none;
+  border-radius: var(--radius-border);
+  transition: var(--transition);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+.tabs__tab-button:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.tabs__tab-button:focus {
+  outline: none;
+}
+
+button[aria-selected='true'].tabs__tab-button--fighting, .tabs__tab-button--fighting:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-fighting) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--flying, .tabs__tab-button--flying:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-flying) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--poison, .tabs__tab-button--poison:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-poison) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--ground, .tabs__tab-button--ground:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-ground) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--rock, .tabs__tab-button--rock:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-rock) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--bug, .tabs__tab-button--bug:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-bug) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--ghost, .tabs__tab-button--ghost:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-ghost) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--steel, .tabs__tab-button--steel:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-steel) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--fire, .tabs__tab-button--fire:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-fire) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--water, .tabs__tab-button--water:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-water) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--grass, .tabs__tab-button--grass:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-grass) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--electric, .tabs__tab-button--electric:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-electric) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--psychic, .tabs__tab-button--psychic:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-psychic) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--ice, .tabs__tab-button--ice:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-ice) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--dragon, .tabs__tab-button--dragon:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-dragon) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--dark, .tabs__tab-button--dark:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-dark) !important  ;
+}
+button[aria-selected='true'].tabs__tab-button--fairy, .tabs__tab-button--fairy:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-fairy) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--unknown, .tabs__tab-button--unknown:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-unknown) !important ;
+}
+button[aria-selected='true'].tabs__tab-button--normal, .tabs__tab-button--normal:focus {
+  box-shadow: 0 0 var(--radius-border) 0.2rem var(--color-pokemon-normal) !important  ;
+}

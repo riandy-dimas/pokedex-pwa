@@ -1,0 +1,26 @@
+.progress-bar__bar-wrapper {
+  width: 100%;
+  height: .6rem;
+  border-radius: 0.5rem;
+  background-color: #eee;
+  display: inline-block;
+  position: relative;
+}
+
+.progress-bar__bar-value {
+  position: absolute;
+  height: .6rem;
+  border-radius: 0.5rem;
+  background-color: currentColor;
+  display: inline-block;
+}
+
+.progress-bar__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-bar__value {
+  font-weight: 700;
+}

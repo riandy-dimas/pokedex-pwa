@@ -3,6 +3,7 @@
   --screen-max-width: 576px;
   --padding-page-content: 1rem 1rem;
   --radius-border: 0.5rem;
+  --transition: all 0.3s ease;
 
   --color-bg-pokemon-ghost:#cbc1e8;
   --color-bg-pokemon-steel:#d9d7e5;
@@ -50,6 +51,68 @@
   margin: 0 auto;
 }
 
+.color {
+  color: #333;
+}
+
+.color--fighting {
+  color: var(--color-pokemon-fighting);
+}
+.color--flying {
+  color: var(--color-pokemon-flying);
+}
+.color--poison {
+  color: var(--color-pokemon-poison);
+}
+.color--ground {
+  color: var(--color-pokemon-ground);
+}
+.color--rock {
+  color: var(--color-pokemon-rock);
+}
+.color--bug {
+  color: var(--color-pokemon-bug);
+}
+.color--ghost {
+  color: var(--color-pokemon-ghost);
+}
+.color--steel {
+  color: var(--color-pokemon-steel);
+}
+.color--fire {
+  color: var(--color-pokemon-fire);
+}
+.color--water {
+  color: var(--color-pokemon-water);
+}
+.color--grass {
+  color: var(--color-pokemon-grass);
+}
+.color--electric {
+  color: var(--color-pokemon-electric);
+}
+.color--psychic {
+  color: var(--color-pokemon-psychic);
+}
+.color--ice {
+  color: var(--color-pokemon-ice);
+}
+.color--dragon {
+  color: var(--color-pokemon-dragon);
+}
+.color--dark {
+  color: var(--color-pokemon-dark);
+}
+.color--fairy {
+  color: var(--color-pokemon-fairy);
+}
+.color--unknown {
+  color: var(--color-pokemon-unknown);
+}
+.color--normal {
+  color: var(--color-pokemon-normal);
+}
+
 body {
   margin: 0;
   font-family: var(--base-font), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -57,7 +120,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d5e4e8;
+  background-color: #fff;
 }
 
 code {
