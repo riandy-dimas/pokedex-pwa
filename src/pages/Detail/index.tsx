@@ -12,7 +12,7 @@ import BackButton from '../../components/BackButton';
 import DescriptionList from '../../components/DescriptionList';
 import ProgressBar from '../../components/ProgressBar';
 import { TPokemonType } from '../../interfaces/pokemon';
-import { getFlatEvolutionChain, getPokemonWeight, getProperStatName, TFlatEvolutionChain } from '../../utils/converter';
+import { getFlatEvolutionChain, getPokemonWeight, getProperStatName } from '../../utils/converter';
 import { AxiosPromise } from 'axios';
 
 type TEvolutionData = {
