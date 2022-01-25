@@ -11,6 +11,7 @@ import TypeTag from '../../components/TypeTag';
 import BackButton from '../../components/BackButton';
 import DescriptionList from '../../components/DescriptionList';
 import ProgressBar from '../../components/ProgressBar';
+import PageLoader from '../../components/utility/PageLoader';
 import { TPokemonType } from '../../interfaces/pokemon';
 import { getFlatEvolutionChain, getPokemonWeight, getProperStatName } from '../../utils/converter';
 import { getFlavorTextByLanguage } from '../../utils/helper';
@@ -95,7 +96,7 @@ const Detail = () => {
   const description = getFlavorTextByLanguage(speciesData?.flavor_text_entries || [])
 
   if (isLoading && !evolutionData) {
-    return <div className='detail page'>Loading...</div>
+    return <PageLoader />
   }
 
   return <div className='detail page'>
