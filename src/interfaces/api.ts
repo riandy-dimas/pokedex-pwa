@@ -52,6 +52,9 @@ export type TGetPokemonSpeciesResponse = {
   id: number,
   flavor_text_entries: {
     flavor_text: string
+    language: {
+      name: string
+    }
   }[],
   evolution_chain: {
     url: string

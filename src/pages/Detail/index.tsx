@@ -13,6 +13,7 @@ import DescriptionList from '../../components/DescriptionList';
 import ProgressBar from '../../components/ProgressBar';
 import { TPokemonType } from '../../interfaces/pokemon';
 import { getFlatEvolutionChain, getPokemonWeight, getProperStatName } from '../../utils/converter';
+import { getFlavorTextByLanguage } from '../../utils/helper';
 import { AxiosPromise } from 'axios';
 
 type TEvolutionData = {
@@ -91,6 +92,7 @@ const Detail = () => {
   const pokemonName: string = pokemonData ? pokemonData.name : '-';
   const pokemonType: TPokemonType = pokemonData ? pokemonData.types[0].type.name : 'normal';
   const pokemonHeaderImage: string = pokemonData ? pokemonData.sprites.other['official-artwork'].front_default: '';
+  const description = getFlavorTextByLanguage(speciesData?.flavor_text_entries || [])
 
   if (isLoading && !evolutionData) {
     return <div className='detail page'>Loading...</div>
@@ -111,7 +113,7 @@ const Detail = () => {
           {
             tabName: 'about',
             tabContent: <article>
-              <p>{ speciesData?.flavor_text_entries[0].flavor_text }</p>
+              <p>{ description }</p>
               <ul className='detail__type-tags'>
                 {
                   pokemonData?.types.map(({ type }) => <TypeTag key={type.name} type={type.name} />)
