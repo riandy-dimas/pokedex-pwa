@@ -7,5 +7,4 @@ a.clickable {
 
 a.clickable:focus {
   outline: none;
-  box-shadow: 0 0 var(--radius-border) 0.2rem cornflowerblue;
 }

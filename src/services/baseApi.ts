@@ -23,6 +23,7 @@ const getPokemonList = ({
   limit,
   offset,
 }: TGetPokemonListParam, callback: TGetPokemonListCallback) => {
+  
   api({
     url: `${BASE_URL}${E_API_PATH.GET_POKEMON_LIST}?limit=${limit}&offset=${offset}`,
     method: 'get',
