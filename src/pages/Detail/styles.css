@@ -4,6 +4,7 @@
   overflow: hidden;
   padding: var(--padding-page-content);
   padding-top: 0;
+  z-index: 1;
 }
 
 .detail__header::before {
@@ -13,8 +14,9 @@
   left: -200px;
   top: -200px;
   content: '';
-  bottom: 0;
+  bottom: 5px;
   z-index: -1;
+  box-shadow: 0 0 5px #333;
 }
 
 .detail__header--fighting::before {
