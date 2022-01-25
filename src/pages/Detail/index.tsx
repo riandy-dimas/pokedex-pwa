@@ -10,8 +10,9 @@ import Tabs from '../../components/Tabs';
 import TypeTag from '../../components/TypeTag';
 import BackButton from '../../components/BackButton';
 import DescriptionList from '../../components/DescriptionList';
+import ProgressBar from '../../components/ProgressBar';
 import { TPokemonType } from '../../interfaces/pokemon';
-import { getPokemonWeight } from '../../utils/converter';
+import { getPokemonWeight, getProperStatName } from '../../utils/converter';
 
 const Detail = () => {
   const params = useParams();
@@ -87,7 +88,16 @@ const Detail = () => {
           },
           {
             tabName: 'stats',
-            tabContent: <article>This is Stats</article>
+            tabContent: <article className='detail__tab-stats'>
+              {
+                pokemonData &&
+                <>
+                  {
+                    pokemonData.stats.map(({ base_stat, stat: { name } }) => <ProgressBar key={name} accent={pokemonType} label={getProperStatName(name)} value={base_stat} />)
+                  }
+                </>
+              }
+            </article>
           },
           {
             tabName: 'evolution',

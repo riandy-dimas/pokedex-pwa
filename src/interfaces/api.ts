@@ -1,3 +1,4 @@
+import { E_STAT_NAME } from "../enum/pokemon";
 import { TPokemonType } from "./pokemon";
 
 export type TGetPokemonListParam = {
@@ -20,6 +21,12 @@ export type TGetPokemonDataResponse = {
   name: string
   height: number
   weight: number
+  stats: {
+    base_stat: number
+    stat: {
+      name: keyof typeof E_STAT_NAME
+    }
+  }[]
   sprites: {
     back_default: string | null
     front_default: string | null
