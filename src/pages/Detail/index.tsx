@@ -184,7 +184,7 @@ const Detail = () => {
                           <img src={from.src} alt={from.name} />
                           <figcaption data-currentpokemon={from.name === pokemonData?.name}>{from.name}</figcaption>
                         </figure>
-                        <span>Level { minLevel }</span>
+                        <span>{ (minLevel >= 0) && <>Level { minLevel }</> }</span>
                         <figure>
                           <img src={to.src} alt={to.name} />
                           <figcaption data-currentpokemon={to.name === pokemonData?.name}>{to.name}</figcaption>
