@@ -18,6 +18,8 @@ export type TGetPokemonListResponse = {
 export type TGetPokemonDataResponse = {
   id: number
   name: string
+  height: number
+  weight: number
   sprites: {
     back_default: string | null
     front_default: string | null

@@ -18,7 +18,7 @@ const Tabs = ({
   return <div className='tabs'>
     <div className='tabs__buttons'>
     {
-      tabs.map(({ tabName }, idx) => <button key={`tab-${tabName}-${idx}`} id={`tab-${tabName}-${idx}`} className={`tabs__tab-button tabs__tab-button--${accentType}`} aria-selected={active === tabName} onClick={() => setActive(tabName)} aria-controls={`panel-${tabName}`} role='tab'>{ tabName }</button>)
+      tabs.map(({ tabName }, idx) => <button key={`tab-${tabName}-${idx}`} id={`tab-${tabName}-${idx}`} className={`tabs__tab-button tabs__tab-button--${accentType} color color--${accentType}`} aria-selected={active === tabName} onClick={() => setActive(tabName)} aria-controls={`panel-${tabName}`} role='tab'>{ tabName }</button>)
     }
     </div>
     <div className='tabs__contents'>

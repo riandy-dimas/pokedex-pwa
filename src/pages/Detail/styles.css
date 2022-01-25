@@ -103,3 +103,15 @@
 .detail__content {
   padding: var(--padding-page-content);
 }
+
+.detail__section-title {
+  margin: 1rem 0;
+}
+
+.detail__type-tags {
+  margin-top: 0.1rem;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0.8rem 0;
+}

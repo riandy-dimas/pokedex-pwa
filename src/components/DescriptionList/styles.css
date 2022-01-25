@@ -1,0 +1,21 @@
+.description-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+}
+
+.description-list__term {
+  text-transform: capitalize;
+  font-size: .9rem;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.description-list__define {
+  text-transform: capitalize;
+  font-weight: 700;
+  opacity: 0.8;
+}
