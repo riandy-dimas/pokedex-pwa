@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import './styles.css';
 
 import { BASE_URL, E_API_PATH } from '../../enum/api';
@@ -8,6 +8,7 @@ import { getPokemonDataByUrl, getPokemonSpeciesByName } from '../../services/bas
 import { ReactComponent as PokeBallLogo } from '../../assets/pokeball.svg';
 import Tabs from '../../components/Tabs';
 import TypeTag from '../../components/TypeTag';
+import BackButton from '../../components/BackButton';
 import DescriptionList from '../../components/DescriptionList';
 import { TPokemonType } from '../../interfaces/pokemon';
 import { getPokemonWeight } from '../../utils/converter';
@@ -16,6 +17,7 @@ const Detail = () => {
   const params = useParams();
   const [pokemonData, setPokemonData] = useState<TGetPokemonDataResponse>();
   const [description, setDescription] = useState<string>('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     getPokemonDataByUrl(`${BASE_URL}${E_API_PATH.GET_POKEMON_LIST}/${params.pokemonName}`)
@@ -39,6 +41,7 @@ const Detail = () => {
   const pokemonHeaderImage: string = pokemonData ? pokemonData.sprites.other['official-artwork'].front_default: '';
   return <div className='detail page'>
     <header className={`detail__header detail__header--${pokemonType}`}>
+      <BackButton onClick={() => navigate(-1)} />
       <PokeBallLogo className='detail__pokeball' />
       <h4 className='detail__pokemon-number'>#{ pokemonNumber }</h4>
       <h1 className='detail__pokemon-name'>{ pokemonName }</h1>
