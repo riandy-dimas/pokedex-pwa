@@ -1,10 +1,63 @@
+:root {
+  --base-font: "Poppins";
+  --screen-max-width: 576px;
+  --padding-page-content: 1rem 1rem;
+  --radius-border: 0.5rem;
+
+  --color-bg-pokemon-ghost:#cbc1e8;
+  --color-bg-pokemon-steel:#d9d7e5;
+  --color-bg-pokemon-dragon:#b9b9fc;
+  --color-bg-pokemon-flying:#cbdeff;
+  --color-bg-pokemon-water:#afd9ff;
+  --color-bg-pokemon-ice:#afd9ff;
+  --color-bg-pokemon-unknown:#255147;
+  --color-bg-pokemon-grass:#b5eaaf;
+  --color-bg-pokemon-bug:#d4dfa7;
+  --color-bg-pokemon-normal:#e4e0cf;
+  --color-bg-pokemon-electric:#ffe9a7;
+  --color-bg-pokemon-ground:#ecd8b4;
+  --color-bg-pokemon-rock:#ecd8b4;
+  --color-bg-pokemon-fire:#ffc8a9;
+  --color-bg-pokemon-fighting:#e7bdb8;
+  --color-bg-pokemon-dark:#c9c0c0;
+  --color-bg-pokemon-psychic:#ffcbde;
+  --color-bg-pokemon-fairy:#fdf;
+  --color-bg-pokemon-poison:#e6c2ef;
+
+  --color-pokemon-ghost: #65539d;
+  --color-pokemon-steel: #908da9;
+  --color-pokemon-dragon: #3b3bbb;
+  --color-pokemon-flying: #7a9ff2;
+  --color-pokemon-water: #3a8be9;
+  --color-pokemon-ice: #3a8be9;
+  --color-pokemon-unknown: #255147;
+  --color-pokemon-grass: #4fb443;
+  --color-pokemon-bug: #889e2a;
+  --color-pokemon-normal: #afa485;
+  --color-pokemon-electric: #f4c234;
+  --color-pokemon-ground: #b7904b;
+  --color-pokemon-rock: #b7904b;
+  --color-pokemon-fire: #e76b2f;
+  --color-pokemon-fighting: #9b4840;
+  --color-pokemon-dark: #5e4c4c;
+  --color-pokemon-psychic: #f5779e;
+  --color-pokemon-fairy: #f9a8ef;
+  --color-pokemon-poison: #a15ab1;
+}
+
+.page {
+  max-width: var(--screen-max-width);
+  margin: 0 auto;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: var(--base-font), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #d5e4e8;
 }
 
 code {

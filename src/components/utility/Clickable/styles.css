@@ -1,0 +1,10 @@
+a.clickable {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
+  border-radius: var(--radius-border);
+}
+
+a.clickable:focus {
+  outline: none;
+}

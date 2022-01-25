@@ -1,0 +1,130 @@
+.card {
+  display: grid;
+  grid-template-columns: 120px auto;
+  position: relative;
+
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border-radius: var(--radius-border);
+  overflow: hidden;
+
+  height: 120px;
+}
+
+.card:hover {
+  box-shadow: 2px 5px 15px rgb(0 0 0 / 0.2);
+}
+
+.focus-visible .card--pokeball,
+.card:hover .card--pokeball
+{
+  transform: rotate(45deg);
+}
+
+.card--pokeball {
+  position: absolute;
+  width: 4.5rem;
+  opacity: 0.1;
+  top: -.55rem;
+  right: -.55rem;
+
+  transition: all 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.card--detail {
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card--image {
+  max-width: 120px;
+  padding: 0.3rem;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.card--name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #fff;
+  text-shadow: 1px 1px 3px #aaa;
+}
+
+.card--number {
+  color: #fff;
+  position: absolute;
+  bottom: -1.1rem;
+  right: -.3rem;
+  opacity: 35%;
+  font-size: 4.8rem;
+  line-height: 1;
+}
+
+.card--types {
+  margin-top: 0.1rem;
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+
+.card--fighting {
+  background-color: var(--color-bg-pokemon-fighting);
+}
+.card--flying {
+  background-color: var(--color-bg-pokemon-flying);
+}
+.card--poison {
+  background-color: var(--color-bg-pokemon-poison);
+}
+.card--ground {
+  background-color: var(--color-bg-pokemon-ground);
+}
+.card--rock {
+  background-color: var(--color-bg-pokemon-rock);
+}
+.card--bug {
+  background-color: var(--color-bg-pokemon-bug);
+}
+.card--ghost {
+  background-color: var(--color-bg-pokemon-ghost);
+}
+.card--steel {
+  background-color: var(--color-bg-pokemon-steel);
+}
+.card--fire  {
+  background-color: var(--color-bg-pokemon-fire);
+}
+.card--water  {
+  background-color: var(--color-bg-pokemon-water);
+}
+.card--grass  {
+  background-color: var(--color-bg-pokemon-grass);
+}
+.card--electric  {
+  background-color: var(--color-bg-pokemon-electric);
+}
+.card--psychic  {
+  background-color: var(--color-bg-pokemon-psychic);
+}
+.card--ice  {
+  background-color: var(--color-bg-pokemon-ice);
+}
+.card--dragon  {
+  background-color: var(--color-bg-pokemon-dragon);
+}
+.card--dark  {
+  background-color: var(--color-bg-pokemon-dark);
+}
+.card--fairy  {
+  background-color: var(--color-bg-pokemon-fairy);
+}
+.card--unknown {
+  background-color: var(--color-bg-pokemon-unknown);
+}
+.card--normal {
+  background-color: var(--color-bg-pokemon-normal);
+}

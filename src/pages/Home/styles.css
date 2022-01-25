@@ -1,0 +1,29 @@
+.home__header {
+  padding: var(--padding-page-content);
+}
+
+.home__subtitle {
+  color: #444;
+}
+
+.home__content {
+  padding: var(--padding-page-content);
+}
+
+.home__list {
+  padding: var(--padding-page-content);
+  display: grid;
+  grid-gap: 0.75rem;
+  grid-template-columns: 1fr;
+
+  padding: 0;
+}
+
+.home__list-item {
+  list-style: none;
+  border-radius: var(--radius-border);
+}
+
+.home__list-item:focus-within {
+  box-shadow: 0 0 var(--radius-border) 0.2rem cornflowerblue;
+}
