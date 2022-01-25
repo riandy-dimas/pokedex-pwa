@@ -16,19 +16,45 @@ export type TFlatEvolutionChain = {
   minLevel: number | null
 }
 
-export const getFlatEvolutionChain = (chain: TGetPokemonEvolutionChainResponse['chain']): TFlatEvolutionChain[] => {
-  const result: TFlatEvolutionChain[] = [];
+/**
+ * Get the flattened evolution chain of a single pokemon.
+ * 
+ * @param chain Pokémon evolution chain
+ * @returns List of flatten evolution chain with it's unique name of the list
+ */
+export const getFlatEvolutionChain = (chain: TGetPokemonEvolutionChainResponse['chain']): {
+  flatEvolutionChain: TFlatEvolutionChain[],
+  uniquePokemonNameList: Set<string>,
+} => {
+  const flatEvolutionChain: TFlatEvolutionChain[] = [];
+  const uniquePokemonNameList: Set<string> = new Set();
 
-  let currentChain = chain;
-  while(currentChain.evolves_to.length > 0) {
-    result.push({
-      from: currentChain.species,
-      to: currentChain.evolves_to[0].species,
-      minLevel: currentChain.evolves_to[0].evolution_details[0]?.min_level || null,
-    })
+  /**
+   * Helper method to get the evolution chain recursively.
+   * 
+   * @param currentChain Current pokemon evolution chain
+   */
+  const findEvolutionOf = (currentChain: TGetPokemonEvolutionChainResponse['chain']) => {
+    for (let i = 0; i < currentChain.evolves_to.length; i++) {
+      flatEvolutionChain.push({
+        from: currentChain.species,
+        to: currentChain.evolves_to[i].species,
+        minLevel: currentChain.evolves_to[i].evolution_details[0]?.min_level || null,
+      })
 
-    currentChain = currentChain.evolves_to[0];
+      /** Add target pokemon name to the unique name list */
+      uniquePokemonNameList.add(currentChain.evolves_to[i].species.name);
+
+      /** Re-process the evolution chain of the evoluted pokemon */
+      findEvolutionOf(currentChain.evolves_to[i]);
+    }
   }
 
-  return result;
+  /** Add current pokemon name */
+  uniquePokemonNameList.add(chain.species.name);
+
+  /** Start the process with current pokemon */
+  findEvolutionOf(chain);
+
+  return { flatEvolutionChain, uniquePokemonNameList };
 }
