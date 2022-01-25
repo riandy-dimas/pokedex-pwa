@@ -96,11 +96,11 @@
 
 .detail__pokeball {
   position: absolute;
-  top: .6rem;
+  top: .5rem;
   left: 50%;
   z-index: -1;
   opacity: 0.05;
-  width: 18rem;
+  width: 20rem;
   transform: translateX(-50%) rotate(-25deg) ;
 }
 
