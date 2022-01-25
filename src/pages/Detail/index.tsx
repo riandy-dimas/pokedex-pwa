@@ -55,27 +55,27 @@ const Detail = () => {
 
     getPokemonEvolutionChain(speciesData.evolution_chain.url)
     .then((responseEvolution) => {
-      const evolutionPromises: AxiosPromise<TGetPokemonDataResponse>[] = [];
 
-      const flatChain = getFlatEvolutionChain(responseEvolution.data.chain);
-      flatChain.forEach(({ from, to }, idx) => {        
-        const evolutionPromiseFrom = getPokemonDataByName(from.name);
-        evolutionPromises.push(evolutionPromiseFrom);
+      const { flatEvolutionChain, uniquePokemonNameList } = getFlatEvolutionChain(responseEvolution.data.chain);
 
-        if (idx === flatChain.length - 1) {
-          const evolutionPromiseTo = getPokemonDataByName(to.name);
-          evolutionPromises.push(evolutionPromiseTo);
-        }
+      /** Get all of the pokemon image sprites, from it's evolution chain(s) */
+      const uniquePokemonPromises: AxiosPromise<TGetPokemonDataResponse>[] = [];
+      uniquePokemonNameList.forEach((name) => {        
+        const uniquePokemonPromise = getPokemonDataByName(name);
+        uniquePokemonPromises.push(uniquePokemonPromise);
       })
 
-      Promise.all(evolutionPromises)
+      Promise.all(uniquePokemonPromises)
         .then((responseGetPokemon) => {
           const imgData: {[key: string]: string} = {};
           
+          /** Convert the result of the image sprites, grouped by pokemon name as an object */
           responseGetPokemon.forEach(({ data: { name, sprites } }) => {
             imgData[name] = sprites.front_default || '';
           })
-          const data: TEvolutionData[] = flatChain.map(({from, to, minLevel}) => ({
+
+          /** Map the flattened evolution chain with it's respective image sprite */
+          const data: TEvolutionData[] = flatEvolutionChain.map(({from, to, minLevel}) => ({
             from: { ...from, src: imgData[from.name] },
             to: { ...to, src: imgData[to.name] },
             minLevel: minLevel ?? -1,
@@ -169,17 +169,14 @@ const Detail = () => {
             tabContent: <article>
               {
                 pokemonData &&
-                <>
                   <h2 className={`detail__section-title color color--${pokemonType}`}>Evolution</h2>
-
-                </>
               }
               {
                 evolutionData &&
                 <ul className={`detail__tab-evolution-list color color--${pokemonType}`}>
                   {
                     evolutionData.map(({ from, to, minLevel }) => (
-                      <li className='detail__tab-evolution-item' key={from.name}>
+                      <li className='detail__tab-evolution-item' key={`${from.name}-${to.name}`}>
                         <figure>
                           <img src={from.src} alt={from.name} />
                           <figcaption data-currentpokemon={from.name === pokemonData?.name}>{from.name}</figcaption>
