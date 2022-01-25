@@ -3,6 +3,7 @@
   --screen-max-width: 576px;
   --padding-page-content: 1rem 1rem;
   --radius-border: 0.5rem;
+  --transition: all 0.3s ease;
 
   --color-bg-pokemon-ghost:#cbc1e8;
   --color-bg-pokemon-steel:#d9d7e5;
@@ -57,7 +58,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d5e4e8;
+  background-color: #fff;
 }
 
 code {

@@ -1,0 +1,105 @@
+.detail__header {
+  position: relative;
+  overflow: hidden;
+  padding: var(--padding-page-content);
+}
+
+.detail__header::before {
+  border-radius: 100%;
+  position: absolute;
+  right: -200px;
+  left: -200px;
+  top: -200px;
+  content: '';
+  bottom: 0;
+  z-index: -1;
+}
+
+.detail__header--fighting::before {
+  background-color: var(--color-bg-pokemon-fighting);
+}
+.detail__header--flying::before {
+  background-color: var(--color-bg-pokemon-flying);
+}
+.detail__header--poison::before {
+  background-color: var(--color-bg-pokemon-poison);
+}
+.detail__header--ground::before {
+  background-color: var(--color-bg-pokemon-ground);
+}
+.detail__header--rock::before {
+  background-color: var(--color-bg-pokemon-rock);
+}
+.detail__header--bug::before {
+  background-color: var(--color-bg-pokemon-bug);
+}
+.detail__header--ghost::before {
+  background-color: var(--color-bg-pokemon-ghost);
+}
+.detail__header--steel::before {
+  background-color: var(--color-bg-pokemon-steel);
+}
+.detail__header--fire::before {
+  background-color: var(--color-bg-pokemon-fire);
+}
+.detail__header--water::before {
+  background-color: var(--color-bg-pokemon-water);
+}
+.detail__header--grass::before {
+  background-color: var(--color-bg-pokemon-grass);
+}
+.detail__header--electric::before {
+  background-color: var(--color-bg-pokemon-electric);
+}
+.detail__header--psychic::before {
+  background-color: var(--color-bg-pokemon-psychic);
+}
+.detail__header--ice::before {
+  background-color: var(--color-bg-pokemon-ice);
+}
+.detail__header--dragon::before {
+  background-color: var(--color-bg-pokemon-dragon);
+}
+.detail__header--dark::before {
+  background-color: var(--color-bg-pokemon-dark);
+}
+.detail__header--fairy::before {
+  background-color: var(--color-bg-pokemon-fairy);
+}
+.detail__header--unknown::before {
+  background-color: var(--color-bg-pokemon-unknown);
+}
+.detail__header--normal::before {
+  background-color: var(--color-bg-pokemon-normal);
+}
+
+.detail__pokemon-header-image {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.detail__pokemon-name {
+  text-transform: capitalize;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 1px 1px 3px #999;
+}
+
+.detail__pokemon-number {
+  color: #fff;
+  text-shadow: 1px 1px 3px #aaa;
+}
+
+.detail__pokeball {
+  position: absolute;
+  top: .6rem;
+  left: 50%;
+  z-index: -1;
+  opacity: 0.05;
+  width: 23rem;
+  transform: translateX(-50%) rotate(-25deg) ;
+}
+
+.detail__content {
+  padding: var(--padding-page-content);
+}

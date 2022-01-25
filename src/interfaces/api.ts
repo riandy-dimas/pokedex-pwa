@@ -25,6 +25,9 @@ export type TGetPokemonDataResponse = {
       'official-artwork': {
         front_default: string
       }
+      dream_world: {
+        front_default: string
+      }
     }
   }
   types: {
@@ -33,5 +36,11 @@ export type TGetPokemonDataResponse = {
       name: TPokemonType
       url: string
     }
+  }[]
+}
+
+export type TGetPokemonSpeciesResponse = {
+  flavor_text_entries: {
+    flavor_text: string
   }[]
 }

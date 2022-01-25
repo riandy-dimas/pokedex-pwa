@@ -3,7 +3,7 @@
   grid-template-columns: 120px auto;
   position: relative;
 
-  transition: all 0.3s ease;
+  transition: var(--transition);
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   border-radius: var(--radius-border);
   overflow: hidden;
@@ -28,7 +28,7 @@
   top: -.55rem;
   right: -.55rem;
 
-  transition: all 0.3s ease;
+  transition: var(--transition);
   transform: rotate(0deg);
 }
 

@@ -7,6 +7,7 @@ import {
   TGetPokemonListCallback,
   TGetPokemonListParam,
   TGetPokemonListResponse,
+  TGetPokemonSpeciesResponse,
 } from '../interfaces/api';
 
 // Create `axios-cache-adapter` instance
@@ -41,7 +42,15 @@ const getPokemonDataByUrl = (url: string): AxiosPromise<TGetPokemonDataResponse>
   })
 }
 
+const getPokemonSpeciesByName = (name: string): AxiosPromise<TGetPokemonSpeciesResponse> => {
+  return api({
+    url: `${BASE_URL}${E_API_PATH.GET_POKEMON_SPECIES}/${name}`,
+    method: 'get',
+  })
+}
+
 export {
   getPokemonDataByUrl,
   getPokemonList,
+  getPokemonSpeciesByName,
 };
