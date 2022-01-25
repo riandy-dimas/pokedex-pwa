@@ -11,7 +11,6 @@ const useIntersectionObs = ({
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // console.log(entry);
 
         if (entry.isIntersecting) {
           //do your actions here

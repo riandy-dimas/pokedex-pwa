@@ -121,3 +121,41 @@
 .detail__tab-stats > figure:not(:last-child) {
   margin-bottom: 0.7rem;
 }
+
+.detail__tab-evolution-list {
+  padding: 0;
+}
+.detail__tab-evolution-item {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.detail__tab-evolution-item:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.detail__tab-evolution-item > span {
+  position: relative;
+  color: #333;
+}
+
+.detail__tab-evolution-item > span::after {
+  position: absolute;
+  content: '⟶';
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.detail__tab-evolution-item figcaption {
+  text-transform: capitalize;
+  text-align: center;
+  color: #333;
+}
+.detail__tab-evolution-item figcaption[data-currentpokemon='true'] {
+  color: inherit;
+  font-weight: 700;
+}

@@ -49,7 +49,27 @@ export type TGetPokemonDataResponse = {
 }
 
 export type TGetPokemonSpeciesResponse = {
+  id: number,
   flavor_text_entries: {
     flavor_text: string
+  }[],
+  evolution_chain: {
+    url: string
+  }
+}
+
+
+type TEvolutionChain = {
+  species: {
+    name: string
+    url: string
+  }
+  evolution_details: {
+    min_level: number
   }[]
+  evolves_to: TEvolutionChain[]
+}
+export type TGetPokemonEvolutionChainResponse = {
+  id: number
+  chain: TEvolutionChain
 }
