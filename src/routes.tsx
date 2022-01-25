@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes as ReactRoutes } from 'react-router-dom';
-import Loading from './components/Loading';
+import LoadingPage from './components/utility/PageLoader';
 
 import Home from './pages/Home';
 import Detail from './pages/Detail';
@@ -12,12 +12,12 @@ const Routes = () => {
       <ReactRoutes>
         <Route
           path="/"
-          element={<Suspense fallback={Loading}>
+          element={<Suspense fallback={LoadingPage}>
             <Home />
           </Suspense>} />
         <Route
           path="/:pokemonName"
-          element={<Suspense fallback={Loading}>
+          element={<Suspense fallback={LoadingPage}>
             <Detail />
           </Suspense>} />
         <Route path="*" element={<Error />} />
