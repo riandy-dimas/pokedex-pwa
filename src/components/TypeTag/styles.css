@@ -1,0 +1,71 @@
+.type-tag {
+  text-transform: capitalize;
+  font-size: 0.8rem;
+  border-radius: 0.5rem;
+  padding: 0 0.3rem;
+  color: #eee;
+  text-shadow: 0 0 1px #333;
+  z-index: 1;
+}
+
+.type-tag:not(:last-child) {
+  margin-right: 0.2rem;
+}
+
+.type-tag--fighting {
+  background-color: var(--color-pokemon-fighting);
+}
+.type-tag--flying {
+  background-color: var(--color-pokemon-flying);
+}
+.type-tag--poison {
+  background-color: var(--color-pokemon-poison);
+}
+.type-tag--ground {
+  background-color: var(--color-pokemon-ground);
+}
+.type-tag--rock {
+  background-color: var(--color-pokemon-rock);
+}
+.type-tag--bug {
+  background-color: var(--color-pokemon-bug);
+}
+.type-tag--ghost {
+  background-color: var(--color-pokemon-ghost);
+}
+.type-tag--steel {
+  background-color: var(--color-pokemon-steel);
+}
+.type-tag--fire  {
+  background-color: var(--color-pokemon-fire);
+}
+.type-tag--water  {
+  background-color: var(--color-pokemon-water);
+}
+.type-tag--grass  {
+  background-color: var(--color-pokemon-grass);
+}
+.type-tag--electric  {
+  background-color: var(--color-pokemon-electric);
+}
+.type-tag--psychic  {
+  background-color: var(--color-pokemon-psychic);
+}
+.type-tag--ice  {
+  background-color: var(--color-pokemon-ice);
+}
+.type-tag--dragon  {
+  background-color: var(--color-pokemon-dragon);
+}
+.type-tag--dark  {
+  background-color: var(--color-pokemon-dark);
+}
+.type-tag--fairy  {
+  background-color: var(--color-pokemon-fairy);
+}
+.type-tag--unknown {
+  background-color: var(--color-pokemon-unknown);
+}
+.type-tag--normal {
+  background-color: var(--color-pokemon-normal);
+}

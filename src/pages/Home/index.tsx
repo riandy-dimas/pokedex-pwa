@@ -2,41 +2,44 @@ import './styles.css';
 
 import PokemonCard from '../../components/Card'
 import Clickable from '../../components/utility/Clickable'
-import { TPokemonType } from '../../interfaces/pokemon';
+import { getPokemonList, getPokemonDataByUrl } from '../../services/baseApi';
 
-const DUMMY_LIST: {
+import { useCallback, useEffect, useState } from 'react';
+import { TGetPokemonDataResponse, TGetPokemonListResponse } from '../../interfaces/api';
+import { AxiosPromise } from 'axios';
+
+type TPokemonList = {
+  id: number
   name: string
-  number: number
-  type: TPokemonType
-}[] = [
-  {
-    name: 'bulbasaur',
-    number: 1,
-    type: 'grass',
-  },
-  {
-    name: 'ivysaur',
-    number: 2,
-    type: 'grass',
-  },
-  {
-    name: 'venusaur',
-    number: 3,
-    type: 'grass',
-  },
-  {
-    name: 'charmander',
-    number: 4,
-    type: 'fire',
-  },
-  {
-    name: 'charmeleon',
-    number: 5,
-    type: 'fire',
-  },
-]
-
+  types: TGetPokemonDataResponse['types']
+  sprites: TGetPokemonDataResponse['sprites']
+}[]
 const Home = () => {
+  const [pokemonList, setPokemonList] = useState<TPokemonList>([]);
+
+  const fetchPokemonData = useCallback((response: TGetPokemonListResponse) => {
+    const { results } = response;
+    const promises: AxiosPromise<TGetPokemonDataResponse>[] = [];
+
+    results.forEach(({ url }) => {
+      promises.push(getPokemonDataByUrl(url));
+    })
+
+    Promise
+      .all(promises)
+      .then((result) => {
+        const pokemons: TPokemonList = result.map(({ data }) => data);
+        pokemons.sort((a, b) => a.id - b.id);
+        setPokemonList(pokemons);
+      })    
+  }, []);
+
+  useEffect(() => {
+    getPokemonList({ limit: 20, offset: 0 }, fetchPokemonData)
+  }, [fetchPokemonData]);
+
+  console.log(pokemonList);
+
   return <div className='home page'>
     <header className='home__header'>
       <h1>Pokédex</h1>
@@ -44,13 +47,13 @@ const Home = () => {
     </header>
     <main className='home__content'>
       {
-        DUMMY_LIST.map(({ name, number, type }) => (
-          <Clickable key={number} url={`${name}`}>
+        pokemonList.map(({ name, id, types, sprites }) => (
+          <Clickable key={id} url={`${name}`}>
             <PokemonCard
               name={name}
-              number={number}
-              type={type}
-              src='https://via.placeholder.com/475'
+              number={id}
+              types={types.map(({ type: { name } }) => name)}
+              src={sprites.other['official-artwork'].front_default}
             />
           </Clickable>
         ))
