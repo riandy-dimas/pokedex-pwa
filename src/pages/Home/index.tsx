@@ -48,7 +48,10 @@ const Home = () => {
 
     /** If query is pokemon name */
     const result = pokeList.current.filter(({ name }) => {
-      return name.indexOf(query as string) > -1;
+      return name.toLowerCase()
+        .indexOf(
+          (query as string).toLowerCase()
+        ) > -1;
     })
     return result
   }, [])
