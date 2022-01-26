@@ -122,28 +122,27 @@ const Home = () => {
       })    
   }, []);
 
+  const pokeQuery = query.get('pokemon') || '-';
+  const isQueryValid = (isNaN(+pokeQuery) && pokeQuery.length > 2) || !isNaN(+pokeQuery);
   const handleIntersecting = useCallback(() => {
     if (!hasNext) {
       return;
     };
-
-    const pokeQuery = query.get('pokemon') || '-';
-    const isQueryValid = (isNaN(+pokeQuery) && pokeQuery.length > 2) || !isNaN(+pokeQuery);
-
     if (isQueryValid) return;
 
     getPokemonList({ limit: GET_POKEMON_LIST_LIMIT, offset: currentOffset.current }, fetchPokemonData)
-  }, [currentOffset, fetchPokemonData, hasNext, query])
+  }, [currentOffset, fetchPokemonData, hasNext, isQueryValid])
 
   useIntersectionObs({
     target: scrollerRef,
     onIntersecting: handleIntersecting,
-    isLoading
+    isLoading,
   })
 
   const handleResetQuery = useCallback(() => {
-    navigate('/', { replace: true });
     setPokemonList([]);
+    currentOffset.current = 0;
+    navigate('/', { replace: true });
     setHasNext(true);
   }, [navigate])
 
