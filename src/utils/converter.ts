@@ -6,6 +6,10 @@ export const getPokemonWeight = (weightData: number) => ({
   lb: Math.round(((weightData / 10) * 2.205) * 10) / 10
 })
 
+export const getPokemonAbility = (abilityNames: string[]) => {
+  return abilityNames.map((name) => name.replaceAll('-', ' ')).join(', ')
+}
+
 export const getProperStatName = (statName: keyof typeof E_STAT_NAME) => {
   return E_STAT_NAME[statName] || statName;
 }
