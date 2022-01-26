@@ -13,7 +13,7 @@ import DescriptionList from '../../components/DescriptionList';
 import ProgressBar from '../../components/ProgressBar';
 import PageLoader from '../../components/utility/PageLoader';
 import { TPokemonType } from '../../interfaces/pokemon';
-import { getFlatEvolutionChain, getPokemonWeight, getProperStatName } from '../../utils/converter';
+import { getFlatEvolutionChain, getPokemonAbility, getPokemonWeight, getProperStatName } from '../../utils/converter';
 import { getFlavorTextByLanguage } from '../../utils/helper';
 import { AxiosPromise } from 'axios';
 
@@ -137,7 +137,7 @@ const Detail = () => {
                       },
                       {
                         term: 'abilities',
-                        define: 'chlorophyll, overgrow',
+                        define: `${getPokemonAbility(pokemonData.abilities.map(({ ability }) => ability.name))}`,
                       },
                     ]}
                   />
