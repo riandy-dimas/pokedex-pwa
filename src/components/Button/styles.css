@@ -1,0 +1,11 @@
+.button {
+  text-transform: capitalize;
+  background: #fff;
+  border: none;
+  border-radius: var(--radius-border);
+  transition: var(--transition);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  font-weight: 300;
+}

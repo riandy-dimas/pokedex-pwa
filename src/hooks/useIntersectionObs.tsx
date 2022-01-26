@@ -3,12 +3,16 @@ import { useEffect } from "react";
 type TUseIntersectionObs = {
   target: React.MutableRefObject<HTMLUListElement | null>
   onIntersecting: () => void
+  isLoading: boolean
 }
 const useIntersectionObs = ({
   target,
   onIntersecting,
+  isLoading = false,
 }: TUseIntersectionObs) => {
   useEffect(() => {
+    if (isLoading) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
 
@@ -26,6 +30,6 @@ const useIntersectionObs = ({
     if (target.current) {
       observer.observe(target.current);
     }
-  }, [target, onIntersecting]);
+  }, [target, onIntersecting, isLoading]);
 }
 export default useIntersectionObs;

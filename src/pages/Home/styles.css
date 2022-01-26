@@ -1,5 +1,6 @@
 .home__header {
   padding: var(--padding-page-content);
+  padding-bottom: 0;
 }
 
 .home__subtitle {
@@ -8,15 +9,16 @@
 
 .home__content {
   padding: var(--padding-page-content);
+  padding-top: 0;
 }
 
 .home__list {
-  padding: var(--padding-page-content);
   display: grid;
   grid-gap: 0.75rem;
   grid-template-columns: 1fr;
 
   padding: 0;
+  padding-top: 15px;
 }
 
 .home__list-item {
@@ -26,4 +28,10 @@
 
 .home__list-item:focus-within {
   box-shadow: 0 0 var(--radius-border) 0.2rem cornflowerblue;
+}
+
+.home__not-found {
+  width: 100%;
+  text-align: center;
+  color: rgb(192, 98, 98);
 }
