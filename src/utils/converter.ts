@@ -24,14 +24,14 @@ export type TFlatEvolutionChain = {
  * Get the flattened evolution chain of a single pokemon.
  * 
  * @param chain Pokémon evolution chain
- * @returns List of flatten evolution chain with it's unique name of the list
+ * @returns List of flatten evolution chain with it's unique URL of the list
  */
 export const getFlatEvolutionChain = (chain: TGetPokemonEvolutionChainResponse['chain']): {
   flatEvolutionChain: TFlatEvolutionChain[],
-  uniquePokemonNameList: Set<string>,
+  uniquePokemonURLList: Set<string>,
 } => {
   const flatEvolutionChain: TFlatEvolutionChain[] = [];
-  const uniquePokemonNameList: Set<string> = new Set();
+  const uniquePokemonURLList: Set<string> = new Set();
 
   /**
    * Helper method to get the evolution chain recursively.
@@ -46,19 +46,19 @@ export const getFlatEvolutionChain = (chain: TGetPokemonEvolutionChainResponse['
         minLevel: currentChain.evolves_to[i].evolution_details[0]?.min_level || null,
       })
 
-      /** Add target pokemon name to the unique name list */
-      uniquePokemonNameList.add(currentChain.evolves_to[i].species.name);
+      /** Add target pokemon URL to the unique URL list */
+      uniquePokemonURLList.add(currentChain.evolves_to[i].species.url);
 
       /** Re-process the evolution chain of the evoluted pokemon */
       findEvolutionOf(currentChain.evolves_to[i]);
     }
   }
 
-  /** Add current pokemon name */
-  uniquePokemonNameList.add(chain.species.name);
+  /** Add current pokemon URL */
+  uniquePokemonURLList.add(chain.species.url);
 
   /** Start the process with current pokemon */
   findEvolutionOf(chain);
 
-  return { flatEvolutionChain, uniquePokemonNameList };
+  return { flatEvolutionChain, uniquePokemonURLList };
 }

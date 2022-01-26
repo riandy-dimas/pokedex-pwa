@@ -36,38 +36,22 @@ const getPokemonList = ({
   .catch((e: Error) => console.error(`Error fetching Pokemon List: ${e}`))
 }
 
-const getPokemonDataByUrl = (url: string): AxiosPromise<TGetPokemonDataResponse> => {
+const baseGetApi = <T>(url: string):AxiosPromise<T> => {
   return api({
     url,
     method: 'get',
   })
 }
 
-const getPokemonDataByName = (name: string): AxiosPromise<TGetPokemonDataResponse> => {
-  return api({
-    url: `${BASE_URL}${E_API_PATH.GET_POKEMON_LIST}/${name}`,
-    method: 'get',
-  })
-}
+const getPokemonData = (url: string) => baseGetApi<TGetPokemonDataResponse>(url);
 
-const getPokemonSpeciesByName = (name: string): AxiosPromise<TGetPokemonSpeciesResponse> => {
-  return api({
-    url: `${BASE_URL}${E_API_PATH.GET_POKEMON_SPECIES}/${name}`,
-    method: 'get',
-  })
-}
+const getPokemonSpecies = (url: string) => baseGetApi<TGetPokemonSpeciesResponse>(url);
 
-const getPokemonEvolutionChain = (url: string): AxiosPromise<TGetPokemonEvolutionChainResponse> => {
-  return api({
-    url,
-    method: 'get',
-  })
-}
+const getPokemonEvolutionChain = (url: string) => baseGetApi<TGetPokemonEvolutionChainResponse>(url);
 
 export {
-  getPokemonDataByUrl,
-  getPokemonList,
-  getPokemonSpeciesByName,
+  getPokemonData,
   getPokemonEvolutionChain,
-  getPokemonDataByName,
+  getPokemonList,
+  getPokemonSpecies,
 };

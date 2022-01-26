@@ -10,7 +10,7 @@ import CardLoader from '../../components/utility/CardLoader'
 import Clickable from '../../components/utility/Clickable'
 import SearchBox from '../../components/SearchBox'
 import PageLoader from '../../components/utility/PageLoader'
-import { getPokemonList, getPokemonDataByUrl } from '../../services/baseApi';
+import { getPokemonList, getPokemonData } from '../../services/baseApi';
 import { GET_POKEMON_LIST_LIMIT } from '../../enum/api';
 import { useNavigate } from 'react-router-dom';
 import { VALID_POKEMON_COUNT } from '../../enum/pokemon';
@@ -74,7 +74,7 @@ const Home = () => {
 
     const filteredPokemonPromises: AxiosPromise<TGetPokemonDataResponse>[] = [];
     filteredPokemon.forEach(({ url }) => {
-      filteredPokemonPromises.push(getPokemonDataByUrl(url))
+      filteredPokemonPromises.push(getPokemonData(url))
     })
 
     setHasNext(true);
@@ -97,7 +97,7 @@ const Home = () => {
     const promises: AxiosPromise<TGetPokemonDataResponse>[] = [];
 
     results.forEach(({ url }) => {
-      promises.push(getPokemonDataByUrl(url));
+      promises.push(getPokemonData(url));
     })
 
     Promise
