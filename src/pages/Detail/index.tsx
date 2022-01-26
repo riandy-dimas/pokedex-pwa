@@ -4,7 +4,7 @@ import './styles.css';
 
 import { BASE_URL, E_API_PATH } from '../../enum/api';
 import { TGetPokemonDataResponse, TGetPokemonSpeciesResponse } from '../../interfaces/api';
-import { getPokemonDataByName, getPokemonDataByUrl, getPokemonEvolutionChain, getPokemonSpeciesByName } from '../../services/baseApi';
+import { getPokemonDataByUrl, getPokemonEvolutionChain, getPokemonSpeciesByUrl } from '../../services/baseApi';
 import { ReactComponent as PokeBallLogo } from '../../assets/pokeball.svg';
 import Tabs from '../../components/Tabs';
 import TypeTag from '../../components/TypeTag';
@@ -41,14 +41,14 @@ const Detail = () => {
   }, [params.pokemonName])
 
   useEffect(() => {
-    if (!params.pokemonName) return;
+    if (!pokemonData?.species.url) return;
 
-    const getSpeciesPromise = getPokemonSpeciesByName(params.pokemonName)
+    const getSpeciesPromise = getPokemonSpeciesByUrl(pokemonData.species.url)
     getSpeciesPromise.then((response) => {
       setSpeciesData(response.data);
     })
     promises.current.push(getSpeciesPromise)
-  }, [params.pokemonName])
+  }, [pokemonData?.species.url])
 
   useEffect(() => {
     if (!speciesData?.evolution_chain.url) return;
@@ -56,12 +56,12 @@ const Detail = () => {
     getPokemonEvolutionChain(speciesData.evolution_chain.url)
     .then((responseEvolution) => {
 
-      const { flatEvolutionChain, uniquePokemonNameList } = getFlatEvolutionChain(responseEvolution.data.chain);
+      const { flatEvolutionChain, uniquePokemonURLList } = getFlatEvolutionChain(responseEvolution.data.chain);
 
       /** Get all of the pokemon image sprites, from it's evolution chain(s) */
       const uniquePokemonPromises: AxiosPromise<TGetPokemonDataResponse>[] = [];
-      uniquePokemonNameList.forEach((name) => {        
-        const uniquePokemonPromise = getPokemonDataByName(name);
+      uniquePokemonURLList.forEach((url) => {        
+        const uniquePokemonPromise = getPokemonDataByUrl(url);
         uniquePokemonPromises.push(uniquePokemonPromise);
       })
 

@@ -21,6 +21,10 @@ export type TGetPokemonDataResponse = {
   name: string
   height: number
   weight: number
+  species: {
+    name: string
+    url: string
+  }
   abilities: {
     ability: {
       name: string

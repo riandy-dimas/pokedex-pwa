@@ -43,16 +43,16 @@ const getPokemonDataByUrl = (url: string): AxiosPromise<TGetPokemonDataResponse>
   })
 }
 
-const getPokemonDataByName = (name: string): AxiosPromise<TGetPokemonDataResponse> => {
-  return api({
-    url: `${BASE_URL}${E_API_PATH.GET_POKEMON_LIST}/${name}`,
-    method: 'get',
-  })
-}
+// const getPokemonDataByName = (name: string): AxiosPromise<TGetPokemonDataResponse> => {
+//   return api({
+//     url: `${BASE_URL}${E_API_PATH.GET_POKEMON_LIST}/${name}`,
+//     method: 'get',
+//   })
+// }
 
-const getPokemonSpeciesByName = (name: string): AxiosPromise<TGetPokemonSpeciesResponse> => {
+const getPokemonSpeciesByUrl = (url: string): AxiosPromise<TGetPokemonSpeciesResponse> => {
   return api({
-    url: `${BASE_URL}${E_API_PATH.GET_POKEMON_SPECIES}/${name}`,
+    url,
     method: 'get',
   })
 }
@@ -67,7 +67,7 @@ const getPokemonEvolutionChain = (url: string): AxiosPromise<TGetPokemonEvolutio
 export {
   getPokemonDataByUrl,
   getPokemonList,
-  getPokemonSpeciesByName,
+  getPokemonSpeciesByUrl,
   getPokemonEvolutionChain,
-  getPokemonDataByName,
+  // getPokemonDataByName,
 };
