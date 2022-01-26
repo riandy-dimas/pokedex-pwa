@@ -1,7 +1,8 @@
 :root {
   --base-font: "Poppins";
   --screen-max-width: 576px;
-  --padding-page-content: 1rem 1rem;
+  --padding-content: 1rem;
+  --padding-page-content: var(--padding-content) var(--padding-content);
   --radius-border: 0.5rem;
   --transition: all 0.3s ease;
 

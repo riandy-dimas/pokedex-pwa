@@ -1,0 +1,27 @@
+.search-box {
+  padding: .8rem var(--padding-content);
+  z-index: 3;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  margin: 0 calc(var(--padding-content) * -1);
+  box-shadow: 0 5px 5px -5px grey;
+}
+
+.search-box__form {
+  display: grid;
+  grid-template-columns: auto 25% 10%;
+  grid-column-gap: 0.5rem;
+}
+
+.search-box__input-field {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 20%);
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+}
+
+.search-box__input-field::placeholder {
+  opacity: 0.4;
+  font-style: italic;
+}
