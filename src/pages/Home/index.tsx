@@ -13,6 +13,7 @@ import PageLoader from '../../components/utility/PageLoader'
 import { getPokemonList, getPokemonDataByUrl } from '../../services/baseApi';
 import { GET_POKEMON_LIST_LIMIT } from '../../enum/api';
 import { useNavigate } from 'react-router-dom';
+import { VALID_POKEMON_COUNT } from '../../enum/pokemon';
 
 type TPokemonList = {
   id: number
@@ -29,11 +30,9 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getPokemonList({ limit: 1, offset: 0}, (response: TGetPokemonListResponse) => {
-      getPokemonList({ limit: response.count, offset: 0 }, ({ results }) => {
-        pokeList.current = results;
-        setIsLoading(false);
-      })
+    getPokemonList({ limit: VALID_POKEMON_COUNT, offset: 0}, (response: TGetPokemonListResponse) => {
+      pokeList.current = response.results;
+      setIsLoading(false);
     })
   }, [])
 
@@ -104,10 +103,16 @@ const Home = () => {
         const pokemons: TPokemonList = result.map(({ data }) => data);
         pokemons.sort((a, b) => a.id - b.id);
         
-        setPokemonList((p) => [...p, ...pokemons]);
-        currentOffset.current += results.length;
+        setPokemonList((p) => {
+          const mergedList = [...p, ...pokemons];
+          if (mergedList.length >= VALID_POKEMON_COUNT) {
+            return mergedList.slice(0, VALID_POKEMON_COUNT)
+          }
+          return mergedList;
+        });
 
-        if (!next) {
+        currentOffset.current += result.length;
+        if (!next || currentOffset.current >= VALID_POKEMON_COUNT) {
           setHasNext(false);
         }
       })    
@@ -144,7 +149,7 @@ const Home = () => {
   
   return <div className='home page'>
     <header className='home__header'>
-      <h1>Pokédex</h1>
+      <h1 className='home__title'>Pokédex</h1>
       <p className='home__subtitle'>Search for a Pokémon by name or using its National Pokédex number.</p>
     </header>
     <main className='home__content'>
