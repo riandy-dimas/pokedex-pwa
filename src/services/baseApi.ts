@@ -43,6 +43,11 @@ const baseGetApi = <T>(url: string):AxiosPromise<T> => {
   })
 }
 
+const getPokemonDataById = (id: string) => {
+  const url = `${BASE_URL}${E_API_PATH.GET_POKEMON_LIST}/${id}`;
+  return baseGetApi<TGetPokemonDataResponse>(url);
+}
+
 const getPokemonData = (url: string) => baseGetApi<TGetPokemonDataResponse>(url);
 
 const getPokemonSpecies = (url: string) => baseGetApi<TGetPokemonSpeciesResponse>(url);
@@ -54,4 +59,5 @@ export {
   getPokemonEvolutionChain,
   getPokemonList,
   getPokemonSpecies,
+  getPokemonDataById,
 };

@@ -4,3 +4,7 @@ export const getFlavorTextByLanguage = (texts: TGetPokemonSpeciesResponse['flavo
   const results = texts.filter(({ language }) => language.name === lang);
   return results[0]?.flavor_text || '-'
 }
+
+export const getPokemonIdByUrl = (url: string) => {
+  return url.split('/').slice(-2)[0];  
+}

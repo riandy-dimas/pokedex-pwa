@@ -4,7 +4,7 @@ import './styles.css';
 
 import { BASE_URL, E_API_PATH } from '../../enum/api';
 import { TGetPokemonDataResponse, TGetPokemonSpeciesResponse } from '../../interfaces/api';
-import { getPokemonData, getPokemonEvolutionChain, getPokemonSpecies } from '../../services/baseApi';
+import { getPokemonData, getPokemonDataById, getPokemonEvolutionChain, getPokemonSpecies } from '../../services/baseApi';
 import { ReactComponent as PokeBallLogo } from '../../assets/pokeball.svg';
 import Tabs from '../../components/Tabs';
 import TypeTag from '../../components/TypeTag';
@@ -14,12 +14,12 @@ import ProgressBar from '../../components/ProgressBar';
 import PageLoader from '../../components/utility/PageLoader';
 import { TPokemonType } from '../../interfaces/pokemon';
 import { getFlatEvolutionChain, getPokemonAbility, getPokemonWeight, getProperStatName } from '../../utils/converter';
-import { getFlavorTextByLanguage } from '../../utils/helper';
+import { getFlavorTextByLanguage, getPokemonIdByUrl } from '../../utils/helper';
 import { AxiosPromise } from 'axios';
 
 type TEvolutionData = {
-  from: { name: string, url: string, src: string },
-  to: { name: string, url: string, src: string },
+  from: { name: string, url: string, src: string, id: number },
+  to: { name: string, url: string, src: string, id: number },
   minLevel: number,
 }
 const Detail = () => {
@@ -60,24 +60,26 @@ const Detail = () => {
 
       /** Get all of the pokemon image sprites, from it's evolution chain(s) */
       const uniquePokemonPromises: AxiosPromise<TGetPokemonDataResponse>[] = [];
-      uniquePokemonURLList.forEach((url) => {        
-        const uniquePokemonPromise = getPokemonData(url);
+      uniquePokemonURLList.forEach((url) => {
+        const pokemonId = getPokemonIdByUrl(url);
+        
+        const uniquePokemonPromise = getPokemonDataById(pokemonId);
         uniquePokemonPromises.push(uniquePokemonPromise);
       })
 
       Promise.all(uniquePokemonPromises)
         .then((responseGetPokemon) => {
-          const imgData: {[key: string]: string} = {};
+          const imgData: {[id: number]: string} = {};
           
           /** Convert the result of the image sprites, grouped by pokemon name as an object */
-          responseGetPokemon.forEach(({ data: { name, sprites } }) => {
-            imgData[name] = sprites.front_default || '';
+          responseGetPokemon.forEach(({ data: { name, sprites, id } }) => {
+            imgData[id] = sprites.front_default || '';
           })
 
           /** Map the flattened evolution chain with it's respective image sprite */
           const data: TEvolutionData[] = flatEvolutionChain.map(({from, to, minLevel}) => ({
-            from: { ...from, src: imgData[from.name] },
-            to: { ...to, src: imgData[to.name] },
+            from: { ...from, src: imgData[from.id] },
+            to: { ...to, src: imgData[to.id] },
             minLevel: minLevel ?? -1,
           }));
           setEvolutionData(data);
@@ -179,12 +181,12 @@ const Detail = () => {
                       <li className='detail__tab-evolution-item' key={`${from.name}-${to.name}`}>
                         <figure>
                           <img src={from.src} alt={from.name} />
-                          <figcaption data-currentpokemon={from.name === pokemonData?.name}>{from.name}</figcaption>
+                          <figcaption data-currentpokemon={from.id === pokemonData?.id}>{from.name}</figcaption>
                         </figure>
                         <span>{ (minLevel >= 0) && <>Level { minLevel }</> }</span>
                         <figure>
                           <img src={to.src} alt={to.name} />
-                          <figcaption data-currentpokemon={to.name === pokemonData?.name}>{to.name}</figcaption>
+                          <figcaption data-currentpokemon={to.id === pokemonData?.id}>{to.name}</figcaption>
                         </figure>
                       </li>)
                     )
