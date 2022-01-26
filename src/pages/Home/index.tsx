@@ -14,6 +14,7 @@ import { getPokemonList, getPokemonData } from '../../services/baseApi';
 import { GET_POKEMON_LIST_LIMIT } from '../../enum/api';
 import { useNavigate } from 'react-router-dom';
 import { VALID_POKEMON_COUNT } from '../../enum/pokemon';
+import { getPokemonIdByUrl } from '../../utils/helper';
 
 type TPokemonList = {
   id: number
@@ -40,7 +41,7 @@ const Home = () => {
     /** If query is pokemon number */
     if (!isNaN(+query)) {
       const result = pokeList.current.filter(({ url }) => {
-        const pokeId = url.split('/').slice(-2)[0];        
+        const pokeId = getPokemonIdByUrl(url)
         return pokeId === query;
       })
       return result
