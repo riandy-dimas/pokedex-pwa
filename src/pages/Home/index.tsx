@@ -134,6 +134,7 @@ const Home = () => {
 
   const handleResetQuery = useCallback(() => {
     navigate('/', { replace: true });
+    setPokemonList([]);
     setHasNext(true);
   }, [navigate])
 
