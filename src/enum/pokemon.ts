@@ -31,3 +31,5 @@ export enum E_STAT_NAME {
   'special-defense' = 'Sp. Defense',
   'speed' = 'Speed',
 }
+
+export const VALID_POKEMON_COUNT = 898;

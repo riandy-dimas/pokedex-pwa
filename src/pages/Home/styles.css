@@ -35,3 +35,7 @@
   text-align: center;
   color: rgb(192, 98, 98);
 }
+
+.home__title > span {
+  font-size: 1.2rem;
+}
