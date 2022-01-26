@@ -36,6 +36,13 @@
   background-color: rgba(207, 50, 50, 0.76) !important;
   color: #fff;
   font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box__reset-button path {
+  fill: #fff;
 }
 
 .search-box__reset-button:hover, .search-box__reset-button:focus {

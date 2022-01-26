@@ -3,7 +3,7 @@ import './styles.css';
 
 type TButton = {
   className?: string
-  children: string
+  children: React.ReactNode
   onClick?: () => void
   type?: 'submit' | 'reset'
 }
