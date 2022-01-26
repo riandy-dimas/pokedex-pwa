@@ -4,7 +4,7 @@ import './styles.css';
 
 import { BASE_URL, E_API_PATH } from '../../enum/api';
 import { TGetPokemonDataResponse, TGetPokemonSpeciesResponse } from '../../interfaces/api';
-import { getPokemonDataByUrl, getPokemonEvolutionChain, getPokemonSpeciesByUrl } from '../../services/baseApi';
+import { getPokemonData, getPokemonEvolutionChain, getPokemonSpecies } from '../../services/baseApi';
 import { ReactComponent as PokeBallLogo } from '../../assets/pokeball.svg';
 import Tabs from '../../components/Tabs';
 import TypeTag from '../../components/TypeTag';
@@ -32,7 +32,7 @@ const Detail = () => {
   const promises = useRef<AxiosPromise[]>([]);
 
   useEffect(() => {
-    const getPokemonPromise = getPokemonDataByUrl(`${BASE_URL}${E_API_PATH.GET_POKEMON_LIST}/${params.pokemonName}`)
+    const getPokemonPromise = getPokemonData(`${BASE_URL}${E_API_PATH.GET_POKEMON_LIST}/${params.pokemonName}`)
     getPokemonPromise.then((response) => {
       setPokemonData(response.data);
     })
@@ -43,7 +43,7 @@ const Detail = () => {
   useEffect(() => {
     if (!pokemonData?.species.url) return;
 
-    const getSpeciesPromise = getPokemonSpeciesByUrl(pokemonData.species.url)
+    const getSpeciesPromise = getPokemonSpecies(pokemonData.species.url)
     getSpeciesPromise.then((response) => {
       setSpeciesData(response.data);
     })
@@ -61,7 +61,7 @@ const Detail = () => {
       /** Get all of the pokemon image sprites, from it's evolution chain(s) */
       const uniquePokemonPromises: AxiosPromise<TGetPokemonDataResponse>[] = [];
       uniquePokemonURLList.forEach((url) => {        
-        const uniquePokemonPromise = getPokemonDataByUrl(url);
+        const uniquePokemonPromise = getPokemonData(url);
         uniquePokemonPromises.push(uniquePokemonPromise);
       })
 
