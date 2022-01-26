@@ -5,4 +5,16 @@
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
+  margin: 5px 0;
+}
+
+.back-button > svg {
+  width: 3rem;
+  height: 3rem;
+  margin-left: -.5rem;
+}
+
+.back-button polygon {
+  fill: #fff;
 }

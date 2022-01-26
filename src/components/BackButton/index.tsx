@@ -1,5 +1,5 @@
-import React from 'react';
 import './styles.css'
+import { ReactComponent as BackIcon } from '../../assets/back_icon.svg';
 
 type TBackButton = {
   text?: string
@@ -9,7 +9,9 @@ const BackButton = ({
   text = '⟵',
   onClick,
 }: TBackButton) => {
-  return <button className='back-button' onClick={() => onClick()}>{text}</button>;
+  return <button className='back-button' onClick={() => onClick()}>
+    <BackIcon />  
+  </button>;
 };
 
 export default BackButton;

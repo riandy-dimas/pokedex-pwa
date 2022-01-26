@@ -19,6 +19,7 @@
   border: none;
   border-radius: 0.2rem;
   padding: 0.5rem;
+  width: 100%;
 }
 
 .search-box__input-field::placeholder {
@@ -28,6 +29,7 @@
 
 .search-box__reset-button, .search-box__submit-button{
   transition: var(--transition);
+  color: #333;
 }
 
 .search-box__reset-button {
