@@ -1,0 +1,247 @@
+{
+  "date": "2026-10-25",
+  "repository": "pokedex-pwa",
+  "baselineHead": "0e9ce043d9bff99c2cb7d1d6a957bc70417a21a9",
+  "baselineVersions": {
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^12.20.42",
+    "@types/react": "^16.14.21",
+    "@types/react-dom": "^16.9.14",
+    "axios": "^0.25.0",
+    "axios-cache-adapter": "^2.7.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "typescript": "^4.5.5",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.4",
+    "workbox-broadcast-update": "^5.1.4",
+    "workbox-cacheable-response": "^5.1.4",
+    "workbox-core": "^5.1.4",
+    "workbox-expiration": "^5.1.4",
+    "workbox-google-analytics": "^5.1.4",
+    "workbox-navigation-preload": "^5.1.4",
+    "workbox-precaching": "^5.1.4",
+    "workbox-range-requests": "^5.1.4",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.4",
+    "workbox-streams": "^5.1.4"
+  },
+  "versions": {
+    "node": "24.22.1",
+    "engines": "24.x",
+    "packageManager": "npm@11.19.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "@types/node": "24.19.2",
+    "react-scripts": "5.0.1"
+  },
+  "lockfile": "package-lock.json",
+  "lockSha256": "352464ec8e993d91ddecd15f2082cf417e7653ba13157f3dd416eb0865889c2a",
+  "baselineAudit": {
+    "info": 0,
+    "low": 14,
+    "moderate": 44,
+    "high": 45,
+    "critical": 9,
+    "total": 112
+  },
+  "audits": {
+    "all": {
+      "counts": {
+        "info": 0,
+        "low": 9,
+        "moderate": 31,
+        "high": 16,
+        "critical": 0,
+        "total": 56
+      },
+      "highOrCritical": [
+        "@svgr/plugin-svgo",
+        "@svgr/webpack",
+        "brace-expansion",
+        "css-select",
+        "node-forge",
+        "nth-check",
+        "postcss",
+        "react-scripts",
+        "rollup-plugin-terser",
+        "selfsigned",
+        "serialize-javascript",
+        "svgo",
+        "webpack-dev-middleware",
+        "webpack-dev-server",
+        "workbox-build",
+        "workbox-webpack-plugin"
+      ]
+    },
+    "production": {
+      "counts": {
+        "info": 0,
+        "low": 9,
+        "moderate": 31,
+        "high": 16,
+        "critical": 0,
+        "total": 56
+      },
+      "highOrCritical": [
+        "@svgr/plugin-svgo",
+        "@svgr/webpack",
+        "brace-expansion",
+        "css-select",
+        "node-forge",
+        "nth-check",
+        "postcss",
+        "react-scripts",
+        "rollup-plugin-terser",
+        "selfsigned",
+        "serialize-javascript",
+        "svgo",
+        "webpack-dev-middleware",
+        "webpack-dev-server",
+        "workbox-build",
+        "workbox-webpack-plugin"
+      ]
+    }
+  },
+  "checks": [
+    {
+      "phase": "baseline-audit",
+      "command": "npm audit --json",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 41
+    },
+    {
+      "phase": "upgrade-install",
+      "command": "npm install --no-audit --no-fund",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 281
+    },
+    {
+      "phase": "final-test",
+      "command": "npm run test -- --passWithNoTests",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 24
+    },
+    {
+      "phase": "final-build",
+      "command": "npm run build",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 276
+    },
+    {
+      "phase": "final-audit",
+      "command": "npm audit --json",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 6
+    },
+    {
+      "phase": "final-production-audit",
+      "command": "npm audit --json --omit=dev",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 3
+    },
+    {
+      "phase": "clean-frozen-install",
+      "command": "npm ci --no-fund --no-audit",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 202
+    },
+    {
+      "phase": "cache-metadata",
+      "command": "npm view axios-cache-interceptor version peerDependencies --json",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 3
+    },
+    {
+      "phase": "axios-metadata",
+      "command": "npm view axios version --json",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 2
+    },
+    {
+      "phase": "axios-compat-install",
+      "command": "npm install --no-audit --no-fund",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 71
+    },
+    {
+      "phase": "safe-audit-fix",
+      "command": "npm audit fix --no-fund",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 197
+    },
+    {
+      "phase": "cache-tests",
+      "command": "npm run test -- --runInBand",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 72
+    },
+    {
+      "phase": "verified-build",
+      "command": "npm run build",
+      "node": "v24.22.1",
+      "exit": 1,
+      "signal": null,
+      "seconds": 251
+    },
+    {
+      "phase": "typescript-compat-install",
+      "command": "npm install --no-audit --no-fund",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 43
+    },
+    {
+      "phase": "compatible-build",
+      "command": "npm run build",
+      "node": "v24.22.1",
+      "exit": 0,
+      "signal": null,
+      "seconds": 219
+    }
+  ],
+  "browser": {
+    "name": "pokedex-pwa",
+    "checks": [
+      "mocked Pokémon list/detail/back navigation and service-worker offline shell",
+      "desktop and mobile screenshots"
+    ],
+    "errors": [],
+    "pass": true
+  },
+  "notes": [
+    "New regression tests cover cached successful responses, separate Pokémon keys and retries after network failure.",
+    "CRA and Workbox legacy advisories remain visible; framework replacement is outside this PR."
+  ],
+  "blockers": []
+}

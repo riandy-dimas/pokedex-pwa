@@ -1,6 +1,6 @@
 // Import dependencies
 import axios, { AxiosPromise, AxiosResponse } from 'axios'
-import { setupCache } from 'axios-cache-adapter'
+import { setupCache } from 'axios-cache-interceptor'
 import { BASE_URL, CACHE_AGE_IN_MINUTES, E_API_PATH } from '../enum/api';
 import {
   TGetPokemonDataResponse,
@@ -11,14 +11,11 @@ import {
   TGetPokemonSpeciesResponse,
 } from '../interfaces/api';
 
-// Create `axios-cache-adapter` instance
-const cache = setupCache({
-  maxAge: CACHE_AGE_IN_MINUTES * 60 * 1000
-})
-
-// Create `axios` instance passing the newly created `cache.adapter`
-const api = axios.create({
-  adapter: cache.adapter
+// Keep the existing in-memory cache lifetime with Axios 1's supported interceptor.
+const api = setupCache(axios.create(), {
+  ttl: CACHE_AGE_IN_MINUTES * 60 * 1000,
+  interpretHeader: false,
+  cacheTakeover: false,
 })
 
 const getPokemonList = ({
